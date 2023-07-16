@@ -8,7 +8,7 @@ function generatePassword () {
       //Prompt for length
       for (var s = 0; s < 1; s+0) {
       var pwLength = prompt("Enter password length(between 8 and 128): ");     
-        if (pwLength <= 8 || pwLength >= 128) {
+        if (pwLength < 8 || pwLength > 128) {
           alert("Length must be between 8 and 128. Please try again");
           }
         else if (pwLength >= 8 || pwLength <= 128) {
@@ -19,7 +19,6 @@ function generatePassword () {
           alert("Length cannot be a letter. Please choose a number between 8 and 128.");
         }
       }
-
       console.log("Password Length: " + pwLength);
 
       //Prompt for casing
@@ -27,9 +26,11 @@ function generatePassword () {
       console.log("Upper Case: " + pwUpper)
       var pwLower = confirm("Include Lower Case?: Ok = Yes or Cancel = No");
       console.log("Lower Case: " + pwLower);
+
       //Prompt for numbers
       var pwNumber = confirm("Include Numbers?: Ok = Yes or Cancel = No");
       console.log("Numbers: " + pwNumber);
+
       //Prompt for special characters
       var pwSpecial = confirm("Include Special Characters?: Ok = Yes or Cancel = No");
       console.log("Special Characters: " + pwSpecial);
@@ -54,10 +55,9 @@ function generatePassword () {
         generatedPasword = generatedPasword + pwChars[Math.floor(Math.random() * pwChars.length)];
         console.log(generatedPasword)
         }
-
-  return generatedPasword;
-  //Validate inputs
+  
   //Display password
+      return generatedPasword;
 }
 
 // Write password to the #password input
